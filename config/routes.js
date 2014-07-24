@@ -33,7 +33,7 @@ module.exports.routes = {
 
 
   // Custom routes here...
-  '/barchart/:user/:repo': 'ChartController.bar'
+  '/charts/bar/:user/:repo': 'chart.bar'
 
 
   // If a request to a URL doesn't match any of the custom routes above,
