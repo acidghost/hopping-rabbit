@@ -20,6 +20,12 @@ var githubEndpoint = function(user, repo) {
   return options;
 };
 
+var colors = ['#f00', '#0f0', '#00f', '#ff0', '#0ff', '#f0f'];
+var shuffle = function(o){
+  for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+  return o;
+};
+
 module.exports = {
 
   bar: function(req, res) {
@@ -47,7 +53,12 @@ module.exports = {
               .attr('width', 600).attr('height', 300);
 
             // write the client-side script manipulating the circle
-            var clientScript = "var chart = nv.models.discreteBarChart().x(function(d) { return d.label }).y(function(d) { return d.value }).staggerLabels(true).tooltips(false).showValues(true).transitionDuration(350);";
+            var c = '';
+            for(var i in colors=shuffle(colors)) {
+              c += '"'+colors[i]+'"';
+              if(i < colors.length-1) c += ',';
+            }
+            var clientScript = "var chart = nv.models.discreteBarChart().x(function(d) { return d.label }).y(function(d) { return d.value }).staggerLabels(true).tooltips(true).showValues(false).transitionDuration(1000).color(["+c+"]);";
             var stringDatas = [];
             for(var key in dataKeyVal) {
               stringDatas.push(JSON.stringify(dataKeyVal[key]));
