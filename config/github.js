@@ -4,7 +4,7 @@
 
 module.exports = {
 
-  CLIENT_ID: 'YOUR_CLIENT_ID',
-  CLIENT_SECRET: 'YOUR_CLIENT_SECRET'
+  CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+  CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET
 
 };
