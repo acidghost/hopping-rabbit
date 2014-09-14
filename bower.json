@@ -1,0 +1,21 @@
+{
+  "name": "hopping-rabbit",
+  "version": "0.0.0",
+  "homepage": "https://github.com/acidghost/hopping-rabbit",
+  "authors": [
+    "Andrea Jemmett <andreajemmett@gmail.com>"
+  ],
+  "description": "A charts generator for Github stats which you can include in your site",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "ionicons": "~1.5.2"
+  }
+}
