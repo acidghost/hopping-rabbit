@@ -5,6 +5,12 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var renderCorrectView = function(type, req, res) {
+  Github.getDatas(req.param('user'), req.param('repo'), function(datas) {
+    res.view('charts/'+type, { layout: 'charts/container', locals: { data: datas } });
+  });
+};
+
 module.exports = {
 
   _config: {
@@ -14,19 +20,15 @@ module.exports = {
   },
 
   bar: function(req, res) {
-
-    Github.getDatas(req.param('user'), req.param('repo'), function(datas) {
-      res.view('charts/bar', { layout: 'charts/container', locals: { data: datas } });
-    });
-
+    renderCorrectView('bar', req, res);
   },
 
   pie: function(req, res) {
+    renderCorrectView('pie', req, res);
+  },
 
-    Github.getDatas(req.param('user'), req.param('repo'), function(datas) {
-      res.view('charts/pie', { layout: 'charts/container', locals: { data: datas } });
-    });
-
+  donut: function(req, res) {
+    renderCorrectView('donut', req, res);
   }
 
 };
