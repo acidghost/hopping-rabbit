@@ -1,0 +1,13 @@
+<script>
+    var chart = nv.models.pieChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
+            .showLabels(true)
+            .color(<%-JSON.stringify(colors)%>);
+
+    var data = <%-JSON.stringify(data)%>;
+    d3.select('#dataviz-container svg')
+            .datum(data)
+            .transition().duration(350)
+            .call(chart);
+</script>

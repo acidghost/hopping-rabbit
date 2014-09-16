@@ -33,7 +33,8 @@ module.exports.routes = {
 
 
   // Custom routes here...
-  '/charts/bar/:user/:repo': 'chart.bar'
+  '/charts/bar/:user/:repo': 'chart.bar',
+  '/charts/pie/:user/:repo': 'chart.pie'
 
 
   // If a request to a URL doesn't match any of the custom routes above,
